@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: zero-budget-bot
+    env: docker
+    plan: free
+    healthCheckPath: /health
+    dockerCommand: "python -m bot.main"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
